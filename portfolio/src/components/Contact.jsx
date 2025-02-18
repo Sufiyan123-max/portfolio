@@ -24,7 +24,7 @@ const handleSubmit = async (e) => {
   setLoading(true); // Ensure loading state is set
   console.log(formData);
   try {
-    const response = await axios.post('http://localhost:5000/contact', formData
+    const response = await axios.post('https://portfolio-7nby.onrender.com/contact', formData
     );
 
     const data = await response.json();
