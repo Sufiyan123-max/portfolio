@@ -1,0 +1,60 @@
+import React from "react";
+
+const certifications = [
+    {
+        id: 1,
+        title: "JavaScript Certification",
+        description: "Completed JavaScript Essential Module 1 and Module 2 certification on Netacad, demonstrating strong knowledge of web development.",
+    }
+      ,
+  {
+    id: 2,
+    title: "Achievement",
+    description: "Won 1st prize in both paper and project presentation at Veda 2k24 in Aditya University.",
+  },
+  {
+    id: 3,
+    title: "C++ Certification",
+    description: "Completed C++ certification on HackerRank, demonstrating proficiency in programming with C++.",
+  },
+  
+  {
+    id: 4,
+    title: "Java Certification",
+    description: "Completed java certification on HackerRank, demonstrating proficiency in programming with java.",
+  },
+];
+
+const Certification = () => {
+  return (
+    <div className="bg-black text-white py-20" id="certification">
+      <div className="container mx-auto px-8 md:px-16 lg:px-24">
+        <h2 className="text-4xl font-bold text-center mb-12">Certifications & Achievements</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {certifications.map((certification) => (
+            <div
+              key={certification.id}
+              className="bg-gray-800 px-6 pb-6 rounded-lg hover:shadow-lg transform 
+              transition-transform duration-300 hover:scale-105"
+            >
+              <div
+                className="text-right text-2xl font-bold text-transparent bg-clip-text 
+              bg-gradient-to-r from-green-600 to-blue-400"
+              >
+                {certification.id}
+              </div>
+              <h3 className="mt-2 text-2xl font-bold text-transparent bg-clip-text 
+              bg-gradient-to-r from-green-400 to-blue-500">
+                {certification.title}
+              </h3>
+              <p className="mt-2 text-gray-300">{certification.description}</p>
+              <a href="#" className="mt-4 inline-block text-green-400 hover:text-blue-500">Read More</a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Certification;
