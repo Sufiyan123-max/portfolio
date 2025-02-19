@@ -5,7 +5,7 @@ const certifications = [
         id: 1,
         title: "JavaScript Certification",
         pdf:"https://www.hackerrank.com/certificates/ea0e3cd8b32a",
-        description: "Completed JavaScript Essential Module 1 and Module 2 certification on Netacad, demonstrating strong knowledge of web development.",
+        description: "Completed JavaScript Basics certification on HackerRank, demonstrating strong knowledge of core JavaScript concepts.",
     }
       ,
   {
@@ -52,7 +52,7 @@ const Certification = () => {
                 {certification.title}
               </h3>
               <p className="mt-2 text-gray-300">{certification.description}</p>
-              <a href={certification.pdf} className="mt-4 inline-block text-green-400 hover:text-blue-500">Read More</a>
+              <a href={certification.pdf} className="mt-4 inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 mx-2 rounded-full hover:opacity-80 transition duration-300">Check It</a>
             </div>
           ))}
         </div>
