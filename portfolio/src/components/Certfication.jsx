@@ -4,23 +4,27 @@ const certifications = [
     {
         id: 1,
         title: "JavaScript Certification",
+        pdf:"https://www.hackerrank.com/certificates/ea0e3cd8b32a",
         description: "Completed JavaScript Essential Module 1 and Module 2 certification on Netacad, demonstrating strong knowledge of web development.",
     }
       ,
   {
     id: 2,
     title: "Achievement",
+    pdf:"https://drive.google.com/file/d/1ekQIDE3w4GD-h7rhfJ2ztC77K-VfCg-Y/view?usp=drive_link",
     description: "Won 1st prize in both paper and project presentation at Veda 2k24 in Aditya University.",
   },
   {
     id: 3,
     title: "C++ Certification",
+    pdf:'https://www.hackerrank.com/profile/sifiyan100',
     description: "Completed C++ certification on HackerRank, demonstrating proficiency in programming with C++.",
   },
   
   {
     id: 4,
     title: "Java Certification",
+    pdf:"https://www.hackerrank.com/certificates/63dc642dc96d",
     description: "Completed java certification on HackerRank, demonstrating proficiency in programming with java.",
   },
 ];
@@ -48,7 +52,7 @@ const Certification = () => {
                 {certification.title}
               </h3>
               <p className="mt-2 text-gray-300">{certification.description}</p>
-              <a href="#" className="mt-4 inline-block text-green-400 hover:text-blue-500">Read More</a>
+              <a href={certification.pdf} className="mt-4 inline-block text-green-400 hover:text-blue-500">Read More</a>
             </div>
           ))}
         </div>

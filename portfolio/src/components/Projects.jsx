@@ -9,6 +9,7 @@ const projects = [
     technologies: "MERN Stack",
     image: employeeMSImage,
     github: "https://github.com/Sufiyan123-max",
+    live:"https://github.com/Sufiyan123-max"
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const projects = [
     technologies: "MERN Stack",
     image: bookMSImage,
     github: "https://github.com/Sufiyan123-max",
+    live:"https://fitclub-neon.vercel.app/"
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const projects = [
     technologies: "Frontend",
     image: Car,
     github: "https://github.com/Sufiyan123-max",
+    live:"https://harshaithireddy.github.io/cars-website/html/index.html"
   },
 ];
 
@@ -42,6 +45,9 @@ const Projects = () => {
               <a href={project.github} className="inline-block bg-gradient-to-r 
               from-green-400 to-blue-500 text-white px-4 py-2 rounded-full" target="_blank" 
               rel="noopener noreferrer">GitHub</a>
+              <a href={project.live} className="inline-block bg-gradient-to-r 
+              from-green-400 to-blue-500 text-white px-4 py-2 mx-2 rounded-full" target="_blank" 
+              rel="noopener noreferrer">Live</a>
             </div>
           ))}
         </div>
