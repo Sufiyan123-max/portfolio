@@ -28,7 +28,7 @@ const Hero = () => {
               Contact With Me
             </button>
             <a
-              href="/resume.pdf" // Reference the resume in the public folder
+              href="/resume1.pdf" // Reference the resume in the public folder
               download // This triggers the download when clicked
               className='bg-gradient-to-r from-pink-500 to-yellow-500 text-white
               transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full'>
