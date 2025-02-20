@@ -47,8 +47,9 @@ const Navbar = () => {
         <div className="md:hidden bg-black text-center py-4 space-y-4">
           <a href="#home" className="block hover:text-gray-400">Home</a>
           <a href="#about" className="block hover:text-gray-400">About Me</a>
-          <a href="#project" className="block hover:text-gray-400">Projects</a>
           <a href="#skill" className="block hover:text-gray-400">Skills</a>
+          <a href="#project" className="block hover:text-gray-400">Projects</a>
+     
           <a href="#certification" className="block hover:text-gray-400">Certification</a>
           <a href="#contact" className="block hover:text-gray-400">Contact</a>
           <button
