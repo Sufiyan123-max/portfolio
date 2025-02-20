@@ -86,7 +86,7 @@ const Contact = () => {
               </div>
               <div className="flex items-center justify-center lg:justify-start">
                 <FaMapMarkedAlt className="text-green-400 mr-2" />
-                <span>Street, City, Kakinada, India</span>
+                <span>Aditya University, Kakinada, India</span>
               </div>
             </div>
           </div>
