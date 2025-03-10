@@ -17,7 +17,7 @@ const projects = [
     technologies: "MERN Stack",
     image: bookMSImage,
     github: "https://github.com/Sufiyan123-max",
-    live:"https://fitclub-neon.vercel.app/"
+    live:"https://fitness-website-azure-pi.vercel.app/"
   },
   {
     id: 3,
