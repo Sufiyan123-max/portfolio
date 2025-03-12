@@ -31,8 +31,7 @@ const About = () => {
                   ></div>
                 </div>
               </div>
-              <div className="flex items-center">
-                
+              <div className="flex items-center"> 
                 <label htmlFor="htmlandcss" className="w-2/12">
                   Javascript
                 </label>
