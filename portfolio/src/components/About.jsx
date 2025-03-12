@@ -16,7 +16,7 @@ const About = () => {
             <p className="text-lg mb-8">
               I am a passionate full-stack developer with a focus on building
               modern and responsive web applications. With a strong foundation
-              in both frontend and backend technologies, I strive to create
+              in both frontend and Backend technologies, I strive to create
               seamless and efficient user experiences.
             </p>
             <div className="space-y-4">
