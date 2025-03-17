@@ -8,8 +8,8 @@ const projects = [
     name: "Netflix",
     technologies: "MERN Stack",
     image: employeeMSImage,
-    github: "https://github.com/Sufiyan123-max",
-    live:"https://github.com/Sufiyan123-max/netflix"
+    github: "https://github.com/Sufiyan123-max/netflixnew",
+    live:"https://netflixnew-delta.vercel.app/"
   },
   {
     id: 2,
