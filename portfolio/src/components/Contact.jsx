@@ -20,28 +20,26 @@ const Contact = () => {
     }));
   };
 
-  console.log(formData);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus({ type: "", message: "" });
 
     try {
       const response = await axios.post(
-        "https://portfolio-7nby.onrender.com/contact",
+        "http://localhost:5000/contact",
         formData
       );
 
       if (response.status === 200) {
-        setStatus({ type: "success", message: "Message sent successfully!" });
-        setFormData({ name: "", email: "", message: "" });
-      } else {
         setStatus({
-          type: "error",
-          message: "Failed to send message. Please try again.",
+          type: "success",
+          message: "Message sent successfully!",
         });
+        setFormData({ name: "", email: "", message: "" });
       }
     } catch (error) {
+      console.error("Frontend error 👉", error);
       setStatus({
         type: "error",
         message: "Failed to send message. Please try again.",
@@ -56,27 +54,21 @@ const Contact = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
 
-        {/* Main Content */}
         <div className="flex flex-col lg:flex-row items-center gap-8">
-          {/* Left Section */}
+          {/* Left */}
           <div className="flex-1 text-center lg:text-left">
             <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 mb-4">
               Let's Talk
             </h3>
             <p className="text-lg">
-              As a skilled web developer with experience in React.js, the MERN
-              stack, and full-stack development, I am actively seeking job
-              opportunities where I can apply my technical expertise.
+              As a skilled web developer with experience in React.js and the
+              MERN stack, I am actively seeking job opportunities.
             </p>
 
-            {/* Contact Details */}
             <div className="mt-8 space-y-4 text-lg">
               <div className="flex items-center justify-center lg:justify-start">
                 <FaEnvelope className="text-green-400 mr-2" />
-                <a
-                  href="mailto:sifiyan100@gmail.com"
-                  className="hover:underline"
-                >
+                <a href="mailto:sifiyan100@gmail.com">
                   sifiyan100@gmail.com
                 </a>
               </div>
@@ -91,61 +83,50 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Section (Form) */}
+          {/* Right */}
           <div className="flex-1 w-full max-w-lg">
             <form className="space-y-4" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name" className="block mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
-                  placeholder="Enter Your Name"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
-                  placeholder="Enter Your Email"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="w-full p-2 rounded bg-gray-800 border border-gray-600 focus:outline-none focus:border-green-400"
-                  rows="5"
-                  placeholder="Enter Your Message"
-                  required
-                />
-              </div>
+              <input
+                type="text"
+                id="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Your Name"
+                className="w-full p-2 rounded bg-gray-800 border border-gray-600"
+                required
+              />
+
+              <input
+                type="email"
+                id="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Your Email"
+                className="w-full p-2 rounded bg-gray-800 border border-gray-600"
+                required
+              />
+
+              <textarea
+                id="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="Your Message"
+                rows="5"
+                className="w-full p-2 rounded bg-gray-800 border border-gray-600"
+                required
+              />
+
               <button
                 type="submit"
-                className="bg-gradient-to-r from-green-400 to-blue-500 text-white w-full md:w-auto px-8 py-2 rounded-full text-lg transform transition-transform duration-300 hover:scale-105"
                 disabled={loading}
+                className="bg-gradient-to-r from-green-400 to-blue-500 px-8 py-2 rounded-full"
               >
                 {loading ? "Sending..." : "Send"}
               </button>
+
               {status.message && (
                 <p
-                  className={`mt-4 text-center ${
+                  className={`text-center ${
                     status.type === "success"
                       ? "text-green-400"
                       : "text-red-400"
