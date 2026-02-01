@@ -4,13 +4,26 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+/* =========================
+   MIDDLEWARE
+========================= */
+
+// ✅ Allow frontend (Vercel) to access backend (Render)
+app.use(
+  cors({
+    origin: "*", // you can restrict later
+    methods: ["GET", "POST"],
+  })
+);
+
 app.use(express.json());
 
-// ✅ CORRECT Nodemailer Transporter (SMTP)
+/* =========================
+   NODEMAILER CONFIG
+========================= */
+
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
@@ -21,21 +34,25 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Check mail server
-transporter.verify((error) => {
+// ✅ Verify mail server once
+transporter.verify((error, success) => {
   if (error) {
-    console.error("MAIL SERVER ERROR 👉", error);
+    console.error("❌ MAIL SERVER ERROR:", error);
   } else {
-    console.log("Mail server is ready to send emails ✅");
+    console.log("✅ Mail server ready");
   }
 });
 
-// Test route
+/* =========================
+   ROUTES
+========================= */
+
+// Health check
 app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
+  res.status(200).send("Backend is running 🚀");
 });
 
-// Contact route
+// Contact API
 app.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -50,28 +67,32 @@ app.post("/contact", async (req, res) => {
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.EMAIL}>`,
       to: process.env.EMAIL,
-      subject: `Portfolio Contact Form - Message from ${name}`,
+      subject: `New message from ${name}`,
       html: `
         <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong> ${message}</p>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Message:</b><br/>${message}</p>
       `,
     });
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
-      message: "Email sent successfully!",
+      message: "Message sent successfully!",
     });
   } catch (error) {
-    console.error("NODEMAILER ERROR 👉", error);
-    res.status(500).json({
+    console.error("❌ NODEMAILER ERROR:", error);
+    return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Failed to send message",
     });
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+/* =========================
+   START SERVER
+========================= */
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
