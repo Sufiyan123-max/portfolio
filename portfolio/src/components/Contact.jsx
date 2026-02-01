@@ -27,7 +27,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/contact",
+        "https://portfolio-7nby.onrender.com/contact",
         formData
       );
 
@@ -55,14 +55,14 @@ const Contact = () => {
         <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-8">
-          {/* Left */}
+          {/* LEFT SECTION */}
           <div className="flex-1 text-center lg:text-left">
             <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 mb-4">
               Let's Talk
             </h3>
             <p className="text-lg">
-              As a skilled web developer with experience in React.js and the
-              MERN stack, I am actively seeking job opportunities.
+              As a skilled web developer with experience in React.js and the MERN
+              stack, I am actively seeking job opportunities.
             </p>
 
             <div className="mt-8 space-y-4 text-lg">
@@ -72,10 +72,12 @@ const Contact = () => {
                   sifiyan100@gmail.com
                 </a>
               </div>
+
               <div className="flex items-center justify-center lg:justify-start">
                 <FaPhone className="text-green-400 mr-2" />
                 <span>+91 9905787612</span>
               </div>
+
               <div className="flex items-center justify-center lg:justify-start">
                 <FaMapMarkedAlt className="text-green-400 mr-2" />
                 <span>Aditya University, Kakinada, India</span>
@@ -83,7 +85,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right */}
+          {/* RIGHT SECTION (FORM) */}
           <div className="flex-1 w-full max-w-lg">
             <form className="space-y-4" onSubmit={handleSubmit}>
               <input
@@ -119,7 +121,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-gradient-to-r from-green-400 to-blue-500 px-8 py-2 rounded-full"
+                className="bg-gradient-to-r from-green-400 to-blue-500 px-8 py-2 rounded-full w-full md:w-auto"
               >
                 {loading ? "Sending..." : "Send"}
               </button>
